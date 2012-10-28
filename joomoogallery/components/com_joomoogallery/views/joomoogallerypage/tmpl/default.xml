@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Joomoo Gallery Page">
+		<message>
+			<![CDATA[A page in the image gallery]]>
+		</message>
+	</layout>
+	<!-- Add fields to the request variables for the layout. --> 
+	<fields name="request">
+		<fieldset name="request">
+			<field name="show_page_title" type="radio" default="1" label="Show Page Title"
+			  description="Display the title of menu option at the top of the page">
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+			</field>
+		</fieldset>
+	</fields>
+	<!-- Add fields to the parameters object for the layout. -->    
+	<fields name="params">
+		<!-- Basic options. --> 
+		<fieldset name="basic" label="Basic Options">
+			<field name="show_description_1" type="radio" default="1" label="Show First Description"
+			  description="Show description entered below after page heading and before help option">
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+			</field>
+			<field name="description_1" type="textarea" cols="36" rows="10" default="" label="Description 1"
+			  description="Description for after page heading and before help option">
+			</field>
+			<field name="show_description_2" type="radio" default="1" label="Show Second Description"
+			  description="Show description entered below after help option and before images">
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+			</field>
+			<field name="description_2" type="textarea" cols="36" rows="10" default="" label="Description 2"
+			  description="Description for after help option and before images">
+			</field>
+			<field name="multi_column_height" type="list" default="300" label="Multi column image height"
+			  description="Initial height of images shown in more than one column ">
+				<option value="50">50px</option>
+				<option value="75">75px</option>
+				<option value="100">100px</option>
+				<option value="125">125px</option>
+				<option value="150">150px</option>
+				<option value="175">175px</option>
+				<option value="200">200px</option>
+				<option value="225">225px</option>
+				<option value="250">250px</option>
+				<option value="275">275px</option>
+				<option value="300">300px</option>
+				<option value="325">325px</option>
+				<option value="350">350px</option>
+				<option value="375">375px</option>
+				<option value="400">400px</option>
+			</field>
+			<field name="single_column_height" type="list" default="600" label="Single column image height"
+			  description="Initial heigpxht of images shown in a single column">
+				<option value="250">250</option>
+				<option value="300">300px</option>
+				<option value="350">350px</option>
+				<option value="400">400px</option>
+				<option value="450">450px</option>
+				<option value="500">500px</option>
+				<option value="550">550px</option>
+				<option value="600">600px</option>
+				<option value="650">650px</option>
+				<option value="700">700px</option>
+				<option value="750">750px</option>
+				<option value="800">800px</option>
+				<option value="850">850px</option>
+				<option value="900">900px</option>
+				<option value="950">950px</option>
+				<option value="1000">1000px</option>
+			</field>
+			<field name="single_column" type="radio" default="0" label="Display in single column?"
+			  description="Display images in a single column?  Overrides number of columns specified for group">
+				<option value="0">Multiple columns</option>
+				<option value="1">Single column</option>
+			</field>
+			<field name="show_help" type="radio" default="0" label="Display help option"
+			  description="Display link allowing user to see help text?">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+			</field>
+			<field name="allow_resizing" type="radio" default="1" label="Allow image resizing"
+			  description="Allow resizing of image via mouse wheel">
+				<option value="0">Disable</option>
+				<option value="1">Enable</option>
+			</field>
+			<field name="all_at_once" type="radio" default="0" label="Display groups"
+			  description="Show all groups at once or one at a time">
+				<option value="0">One at a time</option>
+				<option value="1">All at once</option>
+			</field>
+			<field name="show_group_descriptions" type="radio" default="1" label="Show Group Description"
+			  description="Show or hide group descriptions?">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+			</field>
+			<field name="show_image_titles" type="radio" default="1" label="Show Image Titles"
+			  description="Show or hide image titles?">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+			</field>
+			<field name="show_image_descriptions" type="radio" default="1" label="Show Image Descriptions"
+			  description="Show or hide image descriptions?">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+			</field>
+			<field name="image_title_location" type="radio" default="0" label="Location of Image Titles"
+			  description="Where to put image titles">
+				<option value="0">Above Image</option>
+				<option value="1">Below Image</option>
+			</field>
+		</fieldset>
+	</fields>
+</metadata>

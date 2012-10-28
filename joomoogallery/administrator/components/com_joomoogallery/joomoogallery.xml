@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.7">
+	<name>com_joomoogallery</name>
+	<creationDate>June 2008</creationDate>
+	<author>Tom Hartung</author>
+	<authorEmail>webmaster@tomhartung.com</authorEmail>
+	<authorUrl>tomhartung.com</authorUrl>
+	<copyright>Copyright 2008-2012 tomhartung.com</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<version>1.7</version>
+	<description>A joomla! component that uses mootools to implement an interactive image gallery</description>
+	<administration>
+		<menu>Joomoo Gallery</menu>
+		<files folder="admin">
+			<filename>admin.joomoogallery.php</filename>
+			<filename>config.xml</filename>
+			<filename>index.html</filename>
+			<filename>toolbar.joomoogallery.html.php</filename>
+			<filename>toolbar.joomoogallery.php</filename>
+			<folder>assets</folder>
+			<folder>controllers</folder>
+			<folder>doc</folder>
+			<folder>images</folder>
+			<folder>models</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+	</administration>
+	<files folder="site">
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		<filename>joomoogallery.php</filename>
+		<filename>save-router.php</filename>
+		<folder>assets</folder>
+		<folder>models</folder>
+		<folder>views</folder>
+	</files>
+	<install>
+	</install>
+	<uninstall>
+	</uninstall>
+</extension>

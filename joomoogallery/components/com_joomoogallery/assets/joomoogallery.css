@@ -1,0 +1,177 @@
+/**
+ * @version     $Id: joomoogallery.css,v 1.12 2008/10/31 18:22:49 tomh Exp tomh $
+ * @author      Tom Hartung <webmaster@tomhartung.com>
+ * @package     Joomla
+ * @subpackage  Joomoogallery
+ * @copyright   Copyright (C) 2008 Tom Hartung. All rights reserved.
+ * @since       1.5
+ * @license     GNU/GPL, see LICENSE.php
+ */
+/*
+ * For JPane and accordion effects
+ * -------------------------------
+ */
+#accordion, #noaccordion,
+.element
+{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.element, .noelement
+{
+/*	overflow: scroll; */   /* doesn't work as hoped */
+/*	overflow: visible; */  /* doesn't work as hoped */
+}
+div.panel
+{
+	margin-top: 6px;
+	margin-bottom: 0px;
+}
+.jpane-toggler:hover
+{
+	color: #8a8b00;
+	cursor: pointer;
+	text-decoration: underline;
+}
+h3.jpane-toggler  /* jpane-toggler: for OneOrAll sliders */
+{
+	color: #bdbe0d;
+	margin-top: 6px;
+	margin-bottom: 0px;
+}
+h3#help, h3#allthumbs, h3#allfull,
+h3#onethumbs, h3#onefull
+{
+	font-size: 14px;
+	margin-bottom:  0px;
+}
+h4, h4.toggler   /* toggler: for image groups */
+{
+	margin-top:     6px;
+	margin-left:   10px;
+	margin-bottom:  0px;
+}
+h4.toggler
+{
+	cursor: pointer;
+}
+
+/*
+ * For using the mousewheel to resize images
+ * -----------------------------------------
+ */
+/* body { overflow: scroll; width: 500px; }  */   /* Doesn't work at all! */
+/* .center
+ * {
+ *	margin-left: auto;
+ *	margin-right: auto;
+ *	text-align: center;
+ * }
+ */
+img.joomoogallery_image
+{
+	cursor: n-resize;
+	z-index: 3;
+/*	overflow: auto;    */ /* doesn't work as hoped */
+/*	overflow: scroll;  */ /* doesn't work as hoped */
+/*	overflow: visible; */ /* doesn't work as hoped */
+}
+
+/*
+ * These are for aesthetics only
+ * -----------------------------
+ */
+/* div#page_body, */
+/* div#maincolumn_full, */
+div#joomoogallery_page,
+div#joomoogallery_image
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+h3.joomoogallery_title
+{
+	margin-top:     8px;
+}
+h4.joomoogallery
+{
+	margin-top:     6px;
+	margin-left:   10px;
+	margin-bottom:  0px;
+}
+div.joomoogallery_group_description
+{
+	margin: 4px;
+	padding: 8px;
+}
+p.joomoogallery
+{
+	margin-top:     3px;
+	margin-left:   20px;
+	margin-bottom:  0px;
+	text-align:    left;
+}
+ul.joomoogallery_list
+{
+	margin-top:   6px;
+	margin-left: 30px;
+	padding:      5px;
+	text-align:    left;
+}
+table.joomoogallery_group
+{
+	border: 1px solid white;
+	margin-top: 6px;
+	padding:  3px;
+}
+td.joomoogallery_image
+{
+	border: 1px solid white;
+	margin:   6px;
+	padding:  6px;
+	text-align: center;
+}
+span.joomoogallery_image_title
+{
+	clear: both;
+	font-weight: bold;
+	margin-left: auto;
+	text-align: center;
+}
+/* couldn't get this to work, forced to use span: */
+div.joomoogallery_image_title /* unused */
+{
+	font-weight: bold;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+img.joomoogallery_image
+{
+	border: 1px solid white;
+	clear: both;
+	padding: 0px;
+}
+div.joomoogallery_image_description,
+div.joomoogallery_image_page_description
+{
+	background-color: black;
+	margin:  4px;
+	text-align: left;
+}
+div.joomoogallery_image_description
+{
+	padding: 8px;
+}
+div.joomoogallery_the_image,
+div.joomoogallery_image_page_rating,
+div.joomoogallery_image_page_description
+{
+	width: 500px;
+	padding: 6px;
+}
+div.joomoogallery_image_page
+{
+	margin-left: auto;
+	margin-right: auto;
+}

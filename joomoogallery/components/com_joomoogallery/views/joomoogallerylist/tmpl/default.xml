@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Joomoo Gallery: List of Pages">
+		<message>
+			<![CDATA[Presents a list of Joomoo Gallery pages]]>
+		</message>
+	</layout>
+	<!-- Add fields to the request variables for the layout. --> 
+	<fields name="request">
+		<fieldset name="request">
+			<field name="show_page_title" type="radio" default="1" label="Show Page Title"
+			  description="Display the title of menu option at the top of the page">
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+			</field>
+		</fieldset>
+	</fields>
+	<!-- Add fields to the parameters object for the layout. -->    
+	<fields name="params">
+		<!-- Basic options. --> 
+		<fieldset name="basic" label="Basic Options">
+			<field name="show_description" type="radio" default="1" label="Show Description"
+			  description="Show description entered below">
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+			</field>
+			<field name="description" type="textarea" cols="36" rows="10" default="" label="Description"
+			  description="Description of galleries on this page">
+			</field>
+			<field name="show_instructions" type="radio" default="1" label="Show Instructions"
+			  description="Display a message telling user to click on one of the galleries">
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+			</field>
+		</fieldset>
+	</fields>
+</metadata>

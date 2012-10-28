@@ -1,0 +1,142 @@
+
+                Joomoogallery Component Design          Tom Hartung
+               ================================         October, 2008
+
+ Back End Design Overview
+==========================
+Flow of control:
+----------------
+Following is a high-level description of how the back end of this component
+uses the joomla! MVC framework.
+
+All file names are relative to administrator/components/com_joomoogallery
+
+1.  MVC framework loads admin.joomoogallery.php
+2.  admin.joomoogallery.php passes control to appropriate controller
+    Groups tab selected sets ctlr request variable to 'groups' (selected by default)
+    Images tab selected sets ctlr request variable to 'images'
+    if task request variable is set (*)
+        MVC framework calls method in controller designated by task request variable
+    else
+        MVC framework calls controller's display method
+    (*) task names are set by buttons the toolbar (see toolbar.joomoogallery.html.php)
+        following is a list of available tasks:
+        add:       calls JoomoogalleryController::edit()
+        apply:     calls JoomoogalleryController::save()
+        cancel:    calls JoomoogalleryController::cancel()
+        edit:      calls JoomoogalleryControllerimages::edit()
+                     or  JoomoogalleryControllergroups::edit()
+        publish:   calls JoomoogalleryController::publish()
+        remove:    calls JoomoogalleryController::remove()
+        save:      calls JoomoogalleryController::save()
+        unpublish: calls JoomoogalleryController::publish()
+3.  controller->[task]() method performs actions appropriate for the specified task
+4.  MVC framework passes control to appropriate view class which may perform initialization steps
+    when ctrl = 'groups' view class is in views/joomoogallerygroups/view.html.php
+    when ctrl = 'images' view class is in views/joomoogalleryimages/view.html.php
+5.  MVC framework passes control to view template which produces the output in content area
+    when ctrl = 'groups' view template is in views/joomoogallerygroups/tmpl/default.php
+    when ctrl = 'images' view template is in views/joomoogalleryimages/tmpl/default.php
+
+Diagram of classes used in the back end:
+----------------------------------------
+File names are relative to administrator/components/com_joomoogallery
+
+JObject - base class in joomla! API
+|
++ - JController - part of joomla! MVC API
+|   |
+|   + - JoomoogalleryController (controllers/joomoogallery.php)
+|       |   base class containing methods used by all subclasses
+|       |
+|       + - JoomoogalleryControllergroups (controllers/joomoogallerygroups.php)
+|       |   contains display() and edit() methods specific to joomoogallerygroups table
+|       |
+|       + - JoomoogalleryControllerimages (controllers/joomoogalleryimages.php)
+|           contains display() and edit() methods specific to joomoogalleryimages table
+|
++ - JModel - part of joomla! MVC API
+|   |
+|   + - JoomoogalleryModelJoomoogallery (models/joomoogallery.php)
+|       |   base class containing methods used by all subclasses
+|       |
+|       + - JoomoogalleryModelJoomoogallerygroups (models/joomoogallerygroups.php)
+|       |   contains methods for updating data in the jos_joomoogallerygroups table
+|       |
+|       + - JoomoogalleryModelJoomoogalleryimages (models/joomoogalleryimages.php)
+|           contains methods for updating data in the jos_joomoogalleryimages table
+|
++ - JView - part of joomla! MVC API
+    |
+    + - JoomoogalleryViewJoomoogallerygroups (views/joomoogallerygroups/view.html.php)
+    |   + - views/joomoogallerygroups/tmpl/default.php - defines layout of group listing page
+    |   + - views/joomoogallerygroups/tmpl/edit_row.php - defines layout of edit group page
+    |
+    + - JoomoogalleryViewJoomoogalleryimages (views/joomoogalleryimages/view.html.php)
+        + - views/joomoogalleryimages/tmpl/default.php - defines layout of image listing page
+        + - views/joomoogalleryimages/tmpl/edit_row.php - defines layout of edit image page
+
+
+ Front End Design Overview
+===========================
+Flow of control:
+----------------
+Following is a high-level description of how the front end of this component
+uses the joomla! MVC framework.  All file names are relative to:
+    components/com_joomoogallery
+
+1.  MVC framework loads joomoogallery.php
+2.  joomoogallery.php passes control to display() method in controller.php
+    this component's front end implements no tasks
+3.  controller->display method performs actions appropriate for the specified view
+    --> the view depends on which menu option is being accessed
+    this component implements the following views:
+    o   when the view is joomoogallerylist: implements a list of galleries
+    o   when the view is joomoogallerypage: implements a gallery page
+4.  MVC framework passes control to the view class appropriate for the view,
+    which may perform appropriate initialization steps
+    o   joomoogallerylist: control passes to views/joomoogallerylist/view.html.php
+    o   joomoogallerypage: control passes to views/joomoogallerypage/view.html.php
+5.  MVC framework passes control to the view template appropriate for the view,
+    which produces the output which appears in the content area
+    o   joomoogallerylist: control passes to views/joomoogallerylist/tmpl/default.php
+    o   joomoogallerypage: control passes to views/joomoogallerypage/tmpl/default.php
+
+Diagram of classes used in the front end:
+-----------------------------------------
+File names are relative to components/com_joomoogallery
+
+JObject - base class in joomla! API
+|
++ - JController - part of joomla! MVC API
+|   |
+|   + - JoomoogalleryController (controller.php)
+|       contains groups and images models and performs steps needed to set up view
+|
++ - JModel - part of joomla! MVC API
+|   |
+|   + - JoomoogalleryModelJoomoogallery (models/joomoogallery.php)
+|       |   base class containing methods used by all subclasses
+|       |
+|       + - JoomoogalleryModelJoomoogallerygroups (models/joomoogallerygroups.php)
+|       |   contains methods for accessing data in the jos_joomoogallerygroups table
+|       |
+|       + - JoomoogalleryModelJoomoogalleryimages (models/joomoogalleryimages.php)
+|           contains methods for accessing data in the jos_joomoogalleryimages table
+|
++ - JView - part of joomla! MVC API
+|   |
+|   + - JoomoogalleryViewJoomoogalleryList (views/joomoogallerylist/view.html.php)
+|   |   + - views/joomoogallerylist/tmpl/default.php - defines layout of gallery listing page
+|   |
+|   + - JoomoogalleryViewJoomoogalleryPage (views/joomoogallerypage/view.html.php)
+|       + - views/joomoogallerypage/tmpl/default.php - defines layout of gallery page
+|
++ - JTable - part of joomla! MVC API
+    |
+    + - TableJoomoogalleryGroups (tables/joomoogallerygroups.php)
+    |   defines columns in jos_joomoogallerygroups table
+    |
+    + - TableJoomoogalleryImages (tables/joomoogalleryimages.php)
+        defines columns in jos_joomoogalleryimages table
+

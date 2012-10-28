@@ -1,0 +1,93 @@
+
+                Joomoogallery Component How-to          Tom Hartung
+               ================================         October, 2008
+
+Description
+-----------
+The joomoogallery component allows webmasters to post groups of images
+to a website based on the joomla! CMS.
+
+This component uses the mootools javascript framework to:
+o   Optionally allow users to view one group of images at a time
+o   Optionally allow users to use the mouse wheel to resize images
+Webmasters implement these options when creating a gallery page.
+
+The component organizes images in a heirarchical fashion:
+o   List of Pages - contains one or more
+    o   Gallery Pages - contains one or more
+        o   Groups - contains one or more
+            o   Images
+
+The PHP code in this extension is based on joomla!'s Model-View-Controller
+(MVC) API.
+
+Installation Directories
+------------------------
+adminstrator/components/com_joomoogallery/ - backend component
+components/com_joomoogallery/ - frontend component
+
+Configuration Files
+-------------------
+administrator/components/com_joomoogallery/joomoogallery.xml
+    used for installation
+
+Installation Procedure
+----------------------
+This component was developed and tested on a Linux system (Gentoo) running the latest
+versions of:
+o  apache  (2.2.9-r1 - latest version as of 2008-10-29)
+o  joomla! (1.5.7 - latest version as of 2008-10-29)
+o  mootools (1.11 - version included in joomla! as of 2008-10-29)
+o  mysql 5 (5.0.60-r1 - latest version as of 2008-10-29)
+o  php 5   (5.2.6-r7 - latest version as of 2008-10-29)
+*** MORE DETAILS COMING SOON ***
+*** MORE DETAILS COMING SOON ***
+    See gloria:~/personal/linux/gentoo/lizabeth/joomla-setup.sh
+    (last part where we bring tomhartung.com up-to-date)
+*** MORE DETAILS COMING SOON ***
+*** MORE DETAILS COMING SOON ***
+
+Database Tables Used
+--------------------
+jos_joomoogallerygroups: defines groups of images
+    to install: run administrator/components/com_joomoogallery/tables/install.joomoogallerygroups.sql
+    to uninstall: run administrator/components/com_joomoogallery/tables/uninstall.joomoogallerygroups.sql
+jos_joomoogalleryimages: defines individual images
+    to install: run administrator/components/com_joomoogallery/tables/install.joomoogalleryimages.sql
+    to uninstall: run administrator/components/com_joomoogallery/tables/uninstall.joomoogalleryimages.sql
+
+Overview of Process
+-------------------
+1. install tables
+2. add menu items for one or more gallery pages
+3. add one or more groups
+4. add one or more images
+5. optionally add menu items for one or more lists of gallery pages
+
+Adding Joomoogallery Menu Items
+-------------------------------
+Optionally add a menu item for a list of joomoo gallery pages to the main menu:
+    Back end -> Menus -> Main Menu -> New -> Joomoo Gallery -> Joomoo Gallery: List of Pages
+    Fill in form and click on Save
+To add a menu item for a joomoo gallery page to the main menu:
+    Back end -> Menus -> Main Menu -> New -> Joomoo Gallery -> Joomoo Gallery Page
+    Fill in form and click on Save
+
+Adding Joomoogallery Groups and Images
+--------------------------------------
+To use the back end to add one or more groups:
+    Back end -> Components -> Joomoo Gallery
+    Ensure Groups is selected (appears in a black underline font)
+    Click on the New button in the toobar in the upper right corner
+    Fill out the form
+To use the back end to add one or more images to each group:
+    Back end -> Components -> Joomoo Gallery
+    Click on Images (ensure it appears in a black underline font)
+    Click on the New button in the toobar in the upper right corner
+    Fill out the form
+
+Tips:
+-----
+Ensure groups and images are published
+
+
